@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Práctica 2 - Formulario datos</title>
+        
+        <style type="text/css">
+
+            body{
+                background-color: #cf9055;
+                
+                text-align: center;
+            }
+            
+            #titulo {
+                border-top: 1px solid rgb(0, 0, 0);
+                border-bottom: 1px solid rgb(0, 0, 0);
+            }
+
+           
+                   
+            #contenedor {
+                padding: 1em 3em;
+                margin: 1em 25%;
+            }
+            
+            table {
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+            
+            .primero {
+                text-align: left;
+                font-weight: bold;
+            }
+                        
+
+        </style>
+    </head>
+    <body>
+        
+        <div id="titulo"><h1>BOLETIN DE NOTAS</h1></div>
+        
+        <div id="contenedor">
+            <form action="practica2.php" method="post">
+            
+            
+            <label for="nombre" class="primero"><strong>Introduzca las notas 
+                    obtenidas por el alumno/a: </strong></label>
+            <input type="text" id="nombre" name="nombre" />
+            
+                
+            <table>
+                <tr>
+                    <td></td>
+                    <td>Trimestre 1</td>
+                    <td>Trimestre 2</td>
+                    <td>Trimestre 3</td>
+                </tr>
+                <tr>
+                    <td class="primero">PROGRAMACIÓN</td>
+                    <td><input type="text" name="programacion1" /></td>
+                    <td><input type="text" name="programacion2" /></td>
+                    <td><input type="text" name="programacion3" /></td>
+                </tr>
+                <tr>
+                    <td class="primero">ANÁLISIS</td>
+                    <td><input type="text" name="analisis1" /></td>
+                    <td><input type="text" name="analisis2" /></td>
+                    <td><input type="text" name="analisis3" /></td>
+                </tr>
+                <tr>
+                    <td class="primero">SISTEMAS</td>
+                    <td><input type="text" name="sistemas1" /></td>
+                    <td><input type="text" name="sistemas2" /></td>
+                    <td><input type="text" name="sistemas3" /></td>
+                </tr>
+                <tr>
+                    <td class="primero">FOL</td>
+                    <td><input type="text" name="fol1" /></td>
+                    <td><input type="text" name="fol2" /></td>
+                    <td><input type="text" name="fol3" /></td>
+                </tr>
+                <tr>
+                    <td class="primero">RET</td>
+                    <td><input type="text" name="ret1" /></td>
+                    <td><input type="text" name="ret2" /></td>
+                    <td><input type="text" name="ret3" /></td>
+                </tr>
+            </table>
+            
+            <input type="submit" value="Calcular resultado" />
+            <input type="reset" value="Borrar datos" />
+            </form>
+        </div>
+
+        
+       
+
+    </body>
+</html>
