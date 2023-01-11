@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+
+  <body>
+    <h2>Datos personales:</h2>
+    <form action="practica5.php" method="post">
+      <table>
+        <tr>
+          <td><label for="nombre">Nombre:</label></td>
+          <td><input type="text" size="30" name="nombre" id="nombre" /></td>
+        </tr>
+        <tr>
+          <td><label for="apellido1">Apellido 1:</label></td>
+          <td>
+            <input type="text" size="40" name="apellido1" id="apellido1" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="apellido2">Apellido 2:</label></td>
+          <td>
+            <input type="text" size="40" name="apellido2" id="apellido2" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="fecha_nacimiento">Fecha nacimiento:</label></td>
+          <td>
+            <input
+              type="text"
+              size="11"
+              name="fecha_nacimiento"
+              id="fecha_nacimiento"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="telefonoF">Teléfono fijo:</label></td>
+          <td>
+            <input type="text" size="9" name="telefonoF" id="telefonoF" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="telefonoM">Teléfono movil:</label></td>
+          <td>
+            <input type="text" size="9" name="telefonoM" id="telefonoM" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="blog">Blog:</label></td>
+          <td><input type="text" size="54" name="blog" id="blog" /></td>
+        </tr>
+        <tr>
+          <td><label for="firma">Firma:</label></td>
+          <td>
+            <textarea rows="3" cols="40" name="firma" id="firma"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="imagen">Imagen:</label></td>
+          <td><input type="file" name="imagen" id="imagen" /></td>
+        </tr>
+      </table>
+      <hr />
+      <h2>Estudios previos:</h2>
+      <ul style="list-style: none">
+        <li>
+          <input type="radio" name="estudios" value="ESO" checked />ESO<br />
+        </li>
+        <li><input type="radio" name="estudios" value="BAC" />BAC<br /></li>
+        <li>
+          <input type="radio" name="estudios" value="CFM" />Ciclo formativo de
+          grado medio<br />
+        </li>
+        <li>
+          <input type="radio" name="estudios" value="CFS" />Ciclo formativo de
+          grado superior<br />
+        </li>
+        <li>
+          <input
+            type="radio"
+            name="estudios"
+            value="Universidad"
+          />Universidad<br />
+        </li>
+      </ul>
+
+      <hr />
+      <table>
+        <tr>
+          <td>
+            <h2>Lenguas que conoce:</h2>
+            <select name="lengua[]" size="7" multiple>
+              <option selected value="galego">Galego</option>
+              <option value="catalan">Catalán</option>
+              <option value="ingles">Inglés</option>
+              <option value="frances">Francés</option>
+              <option value="portugues">Portugués</option>
+              <option value="italiano">Italiano</option>
+              <option value="xapones">Japonés</option>
+            </select>
+          </td>
+          <td>
+            <ul style="list-style: none">
+              <li>
+                <input type="checkbox" name="deporte" value="deporte" />Practica
+                deporte<br />
+              </li>
+
+              <li>
+                <input type="checkbox" name="fuma" value="SI" />Fuma<br />
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Registrar" />
+            <input type="reset" value="Borrar" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

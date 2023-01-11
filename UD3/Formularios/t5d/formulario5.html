@@ -1,0 +1,89 @@
+<!DOCTYPE htm PUBLIC "-//W3C//DTD htm 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <title>Formulario</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ </head>
+ <body>
+  <h2>Datos personais:</h2>
+  <form enctype="multipart/form-data" action="tarefa5.php" method="post" >
+   <table>
+    <tr>
+     <td><label for="nome">Nome:</label></td>
+     <td><input type="text" size=30 name="nome" id="nome"></td>
+    </tr>
+    <tr>
+     <td><label for="apelido1">Apelido 1:</label></td>
+     <td><input type="text" size=40 name="apelido1" id="apelido1"></td>
+    </tr>
+    <tr>
+     <td><label for="apelido2">Apelido 2:</label></td>
+     <td><input type="text" size=40 name="apelido2" id="apelido2"></td>
+    </tr>
+    <tr>
+     <td><label for="datanac">Data nacemento:</label></td>
+     <td><input type="text" size=11 name="datanac" id="datanac"></td>
+    </tr>
+    <tr>
+     <td><label for="telefonoF">Teléfono fixo:</label></td>
+     <td><input type="text" size=9 name="telefonoF" id="telefonoF"></td>
+    </tr>
+    <tr>
+     <td><label for="telefonoM">Teléfono móbil:</label></td>
+     <td><input type="text" size=9 name="telefonoM" id="telefonoM"></td>
+    </tr>
+    <tr>
+     <td><label for="blog">Blog:</label></td>
+     <td><input type="text" size=54 name="blog" id="blog"></td>
+    </tr>
+    <tr>
+     <td><label for="sinatura">Sinatura:</label></td>
+     <td><textarea rows="3" cols="40" name="sinatura" id="sinatura"></textarea></td>
+    </tr>
+    <tr>
+     <td><label for="imaxe">Imaxe:</label></td>
+     <td><input type="file" name="imaxe" id="imaxe"></td>
+    </tr>
+   </table>
+   <hr>
+   <h2>Estudos previos:</h2>
+    <ul style="list-style: none; ">
+     <li><input type="radio" name="estudos" value="eso" checked>ESO<br>
+     <li><input type="radio" name="estudos" value="bac">Bacharelato<br>
+     <li><input type="radio" name="estudos" value="cfm">Ciclo formativo de grao medio<br>
+     <li><input type="radio" name="estudos" value="cfs">Ciclo formativo de grao superior<br>
+     <li><input type="radio" name="estudos" value="uni">Universidade<br>
+    </ul>
+   <hr>
+   <table>
+    <tr>
+     <td>
+      <h2>Linguas que coñece:</h2>
+      <select name="lingua[]" size="7" multiple>
+       <option selected value="galego">Galego</option>
+       <option value="catalan">Catalán</option>
+       <option value="ingles">Inglés</option>
+       <option value="frances">Francés</option>
+       <option value="portugues">Portugués</option>
+       <option value="italiano">Italiano</option>
+       <option value="xapones">Xaponés</option>
+      </select>
+     </td>
+     <td>
+      <ul style="list-style: none; ">
+       <li><input type="checkbox" name="deporte" value="deporte">Practica deporte<br>
+       <li><input type="checkbox" name="fuma" value="SI">Fuma<br>
+      </ul>
+     </td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <input type="submit" value="Rexistrar">
+      <input type="reset" value="Borrar">
+     </td>
+    </tr>
+   </table>
+  </form>
+ </body>
+</html>
