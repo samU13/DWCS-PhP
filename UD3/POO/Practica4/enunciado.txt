@@ -1,0 +1,44 @@
+Queremos xestionar unha academia de baile. Para elo, temos que gardar información tanto
+dos alumnos como dos profesores que imparten clases na academia. De ambos queremos
+saber o seu nome, apelidos, móbil. Dos profes ademáis queremos almacenar o NIF para o
+cal chamarán ao método construtor de Persoa ademáis de almacenar o NIF.
+Temos que declarar as seguintes clases:
+
+ A clase Persoa debe ter un método verInformación que devolve para a información co
+seguinte formato: Uxia Loureiro Agra (699444999)
+
+ A clase Alumno ten dous métodos: setNumClases e aPagar, e debe empregar o método
+construtor de Persoa.
+
+o O método aPagar devolverá o importe e pagan en función do número de actividades
+nas que se inscriben:
+
+Por unha actividade: 20 euros
+Por dúas actividades:32 euros
+Por tres ou máis: 40 euros.
+No caso de que non estea establecido o número de clases ás que asiste para ese
+alumno devolverá 'Debe indicar previamente o número de clases'.
+ A clase Profesor ten un método calcularSoldo que calcula o que cobran os profesores
+dependendo do número de clases que imparten ao mes. Recibe como parámetros o
+número de horas e o importe de cada hora, que está establecido en 16 euros pero podería
+variar.
+
+ A clase Baile con dous atributos: nome e idadeMínima. A idade mínima será de 8 anos
+salvo que se indique o contrario.
+O profesor terá 3 métodos para engadir os Bailes que imparte, eliminar un baile cando
+deixe de impartilo e para devolver os bailes que imparte da forma:
+HIP HOP (idade min:8 anos)
+Antes de engadir un baile debe comprobar se xa está dado de alta para ese profesor.
+
+ A clase Academia: almacenará o seu nome nunha constante e debe permitir engadir
+Profesores e Alumnos.
+Para probalo debes facer o seguinte:
+o Engade á academia un profesor que imparte 4 bailes (entre eles AFRO, e un deles
+duplicado) e 2 alumnos.
+
+o Mostra información do profesores (incluíndo o soldo e os bailes que imparte) e dos
+alumnos incluindo a cuota que deberá pagar.
+o O profesor deixa de dar clase de AFRO. Actualiza a información da academia e volve
+a mostrar a información do profesor.
+
+ Impide a herdanza das clases Alumno e Profesor.
