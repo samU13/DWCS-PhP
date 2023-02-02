@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.shopping_cart{
+    padding: 2rem;
+    background-color: #dfcc98;
+}
+
+dt{
+    color: whitesmoke;
+   background-color: #ce8087;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #dd3b4b;
+}
+h1{
+    color: #40322c;
+}
