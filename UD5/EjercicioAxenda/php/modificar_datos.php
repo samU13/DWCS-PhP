@@ -20,6 +20,6 @@ $stmt->close();
 $conn->close();
 
 //Redirigir a la página principal
-header("Location: ../editar.php");
+header("refresh:2; Location: ../editar.php");
 exit();
 ?>

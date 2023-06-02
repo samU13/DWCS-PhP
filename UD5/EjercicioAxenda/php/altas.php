@@ -25,3 +25,7 @@ if ($result->num_rows > 0) {
 //Cerrar conexión
 $stmt->close();
 $conn->close();
+
+//Redirigir a la página principal despues de 2 segundos
+header("refresh:2; url=../altas.html");
+exit();

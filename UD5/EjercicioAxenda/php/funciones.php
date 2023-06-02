@@ -24,11 +24,11 @@ if ($result->num_rows > 0) {
     echo "<form action='eliminar.php' method='post'>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td><input type='checkbox' name='ids[]' value='" . $row["id"] . "' /></td>";
-        echo "<td>" . $row["id"] . "</td>";
-        echo "<td>" . $row["nome"] . "</td>";
-        echo "<td>" . $row["telefono"] . "</td>";
-        echo "<td><a href='modificar.php?id=" . $row["id"] . "'>Modificar</a></td>";
+        echo "<td><input type='checkbox' name='ids[]' value='" . $row["id"] . "' /></td>" . " ";
+        echo "<td>" . $row["id"] . "</td>" . " ";
+        echo "<td>" . $row["nome"] . "</td>" . " ";
+        echo "<td>" . $row["telefono"] . "</td>" . " ";
+        echo "<td><a href='modificar.php?id=" . $row["id"] . "'>Modificar</a></td><br>";
         echo "</tr>";
     }
     echo "<input type='submit' value='Eliminar'>";
