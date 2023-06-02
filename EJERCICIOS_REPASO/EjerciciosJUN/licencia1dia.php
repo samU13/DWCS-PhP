@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,11 +9,8 @@
 
 <body>
     <?php
-    session_start();
-    // Crea una session
-    if (empty($_SESSION['csrf_token'])) {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
 
     //Funcion para conseguir la IP
     function getRealIP()
@@ -29,15 +25,12 @@
     }
 
     //Funcion para coger los datos si los hay, y si no ponerlos en blanco
-    $campos = ["dni", "nome", "apelidos", "enderezo", "poboacion", "provincia", "cp", "telefono", "email", "data", "sexo", "ip"];
+    $campos = ["dni", "nome", "apelidos", "enderezo", "poboacion", "provincia", "cp", "telefono", "email", "data", "sexo", "ip", "ingreso"];
     $data = [];
     foreach ($campos as $campo) {
         $data[$campo] = isset($_POST[$campo]) ? $_POST[$campo] : "";
     }
 
-    //Validar datos
-    $data["telefono"] = filter_var($data["telefono"], FILTER_VALIDATE_INT);
-    $data["email"] = filter_var($data["email"], FILTER_VALIDATE_EMAIL);
 
     //Conectar a la base de datos
     $conexion = mysqli_connect("localhost", "root", "", "triatlon");
@@ -47,25 +40,29 @@
         throw new Exception("Error $conexion->connect_errno al conectar a la base de datos");
     }
 
-    //Comprobar token
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-            die("Error de token");
-        }
-        if ($data['dni'] != "") {
-            $stmt = $conexion->prepare("INSERT INTO participantes (dni, nome, apelidos, enderezo, poboacion, provincia, cp, telefono, email, data, sexo, ip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("ssssssssssss", $data['dni'], $data['nome'], $data['apelidos'], $data['enderezo'], $data['poboacion'], $data['provincia'], $data['cp'], $data['telefono'], $data['email'], $data['data'], $data['sexo'], $data['ip']);
-            $stmt->execute();
-            $stmt->close();
-        }
+    //Comprobar si el dni ya esta en la base de datos
+    $stmt = $conexion->prepare("SELECT dni FROM licenza WHERE dni = ?");
+    $stmt->bind_param("s", $data['dni']);
+    $stmt->execute();
+    $stmt->bind_result($dni);
+    $stmt->fetch();
+    $stmt->close();
+
+    //Si el dni no esta en la base de datos, inserta los datos
+    if ($data['dni'] != "" && $dni != $data['dni']) {
+        $stmt = $conexion->prepare("INSERT INTO licenza (dni, nome, apelidos, enderezo, poboacion, provincia, cp, telefono, email, data_nasc, sexo, ip, ingreso) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("ssssssssssssi", $data['dni'], $data['nome'], $data['apelidos'], $data['enderezo'], $data['poboacion'], $data['provincia'], $data['cp'], $data['telefono'], $data['email'], $data['data'], $data['sexo'], $data['ip'], $data['ingreso']);
+        $stmt->execute();
+        $stmt->close();
     }
+
     $conexion->close();
 
 
 
     ?>
     <h1>Formulario de inscricion</h1>
-    <form action="ejercicio1.php" method="post">
+    <form action="licencia1dia.php" method="post">
         <p>Carrera: I Triatlon de Menores de Sada</p>
         <p>A sua direccion IP quedara gardada na base de datos </p>
         <table>
@@ -114,6 +111,13 @@
                 <td>
                     <input type="radio" name="sexo" id="sexo" value="M">Home
                     <input type="radio" name="sexo" id="sexo" value="F">Muller
+                </td>
+            </tr>
+            <tr>
+                <td>Ingreso:</td>
+                <td>
+                    <input type="radio" name="ingreso" id="ingreso" value="1">SI
+                    <input type="radio" name="ingreso" id="ingreso" value="0">NO
                 </td>
             </tr>
             <tr>

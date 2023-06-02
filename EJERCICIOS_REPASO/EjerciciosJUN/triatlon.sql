@@ -1,3 +1,4 @@
+-- Active: 1685695038218@@127.0.0.1@3306@triatlon
 DROP TABLE IF EXISTS `licenza`;
 CREATE TABLE IF NOT EXISTS `licenza` (
   `dni` varchar(9) NOT NULL,
@@ -8,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `licenza` (
   `provincia` varchar(30) DEFAULT NULL,
   `cp` varchar(30) DEFAULT NULL,
   `telefono` varchar(9) DEFAULT NULL,
-  `mail` varchar(60) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
     `data_nasc` DATE DEFAULT NULL, -- No puede ser mucho mayor
   `sexo` varchar(30) DEFAULT NULL,
   `ip` varchar(45) DEFAULT NULL, -- IPv6 no puede tener mas de 45 caracteres

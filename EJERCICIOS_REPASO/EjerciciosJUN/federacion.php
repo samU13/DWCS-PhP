@@ -10,6 +10,8 @@
 
 <body>
     <?php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
     // Conecta con la base de datos
     $conexion = mysqli_connect("localhost", "root", "", "triatlon");
     // Comprueba la conexion
@@ -18,13 +20,12 @@
     }
 
     //Prepara la consulta
-    $stmt = $conexion->prepare("SELECT dni, nome, apelidos, ingreso FROM federacion");
+    $stmt = $conexion->prepare("SELECT dni, nome, apelidos, ingreso FROM licenza");
     //Ejecuta la consulta
     $stmt->execute();
     //Guarda el resultado en variables
     $result = $stmt->bind_result($dni, $nombre, $apelidos, $ingreso);
-    //Cierra la consulta
-    $stmt->close();
+
 
     // Fetch todos los resultados en un array
     $resultados = [];
@@ -56,7 +57,17 @@
             <td><?= $resultado["dni"] ?></td>
             <td><?= $resultado["nombre"] ?></td>
             <td><?= $resultado["apelidos"] ?></td>
-            <td><?= $resultado["ingreso"] ?></td>
+            <?php
+                if ($resultado["ingreso"] == 1) {
+                ?>
+            <td><input type="checkbox" checked></td>
+            <?php
+                } elseif ($resultado["ingreso"]  == 0) {
+                ?>
+            <td><input type="checkbox"></td>
+            <?php
+                }
+                ?>
         </tr>
         <?php endforeach ?>
     </table>
