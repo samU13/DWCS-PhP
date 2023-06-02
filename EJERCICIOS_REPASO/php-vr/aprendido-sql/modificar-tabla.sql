@@ -1,0 +1,21 @@
+-- Active: 1683200696239@@127.0.0.1@3306@prueba
+# RENOMBRAR UNA TABLA #
+ALTER TABLE usuarios RENAME TO usuarios_renombrada;
+
+ALTER TABLE usuarios_renombrada RENAME TO usuarios;
+
+# CAMBIAR EL NOMBRE DE UNA COLUMNA #
+ALTER TABLE usuarios_renombrada CHANGE apellidos apellido VARCHAR(100) NOT NULL;
+
+# MODIFICAR COLUMNA SIN CAMBIAR NOMBRE #
+ALTER TABLE usuarios_renombrada MODIFY COLUMN apellido VARCHAR(40) NOT NULL DEFAULT 'SIN APELLIDO';
+
+# AGREGAR COLUMNA #
+ALTER TABLE usuarios_renombrada ADD COLUMN edad INT(3) NOT NULL DEFAULT 0;
+ALTER TABLE usuarios_renombrada ADD COLUMN website VARCHAR(100) NULL;
+
+# AGREGAR RESTRICCION A COLUMNA #
+ALTER TABLE usuarios_renombrada ADD CONSTRAINT uq_email UNIQUE(email);
+
+# ELIMINAR COLUMNA #
+ALTER TABLE usuarios_renombrada DROP COLUMN website;
