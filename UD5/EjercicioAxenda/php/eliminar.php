@@ -20,6 +20,6 @@ if (isset($_POST['ids'])) {
 $conn->close();
 
 //Redirigir a la página principal
-header("Location: index.php");
+header("Location: ../editar.php");
 exit();
 ?>

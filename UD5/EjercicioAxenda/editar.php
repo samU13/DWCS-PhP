@@ -4,17 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Contacto</title>
-    <style>
-    .menu {
-        margin: 20px 0;
-    }
-
-    .menu a {
-        margin-right: 10px;
-        text-decoration: none;
-        color: #333;
-    }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
